@@ -963,8 +963,6 @@ class HDTicket(Document, CustomerEditController):
             self.resolution_date = None
             self.resolution_time = None  # apply_sla() won't run to clear it if no SLA is attached, so clear it here
             return
-        if self.resolution_date and not self.has_value_changed("status_category"):
-            return
         self.resolution_date = now_datetime()
 
     def set_sla(self):
